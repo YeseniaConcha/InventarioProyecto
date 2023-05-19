@@ -19,7 +19,7 @@ class Producto (models. Model):
     nombreProducto = models.CharField(max_length=50)
     cantidad = models.IntegerField()
     descripcionProducto = models.CharField(max_length=100)
-    bodega = models.ForeignKey(Bodega, on_delete=models.CASCADE)
+    bodega = models.ForeignKey(Bodega, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = "Producto"
@@ -31,5 +31,5 @@ class Producto (models. Model):
 
 class productoBodega (models.Model):
     stock = models.IntegerField()
-    id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    id_Bodega = models.ForeignKey(Bodega, on_delete=models.CASCADE)
+    id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True)
+    id_Bodega = models.ForeignKey(Bodega, on_delete=models.CASCADE, null=True)
